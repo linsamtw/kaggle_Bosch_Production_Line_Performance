@@ -45,18 +45,24 @@ PS:RandPro 隨機降維可能是不錯的方法，http://steve-chen.tw/?p=611
 # 特徵工程2
 
 在生產線上，同一時間製造多個產品，因此它們的表現可能有高度相關，因此進行以下特徵工程。
-|feature|解釋|
-|-------|---|
-|first|進入該製成時間點|
-|first|進入該製成時間點|
-|first|進入該製成時間點|
-|first|進入該製成時間點|
-|first|進入該製成時間點|
-|first|進入該製成時間點|
-|first|進入該製成時間點|
-|first|進入該製成時間點|
-|first|進入該製成時間點|
+注意：first[is.na(first)]=0，否則對其他feature製造會產生na
 
+|feature|解釋|code|
+|-------|----|----|
+|next|下一個產品是否為同時製造的產品||
+|prev|上一個產品是否為同時製造的產品||
+|total|total|next+prev|
+|same.time|是否同時製造|total>0|
+|order.same.time|在同時製造的產品中，該產品是第幾個|(cumsum(prev)+1) * same.time|
+|group|第幾群同時製造的產品，同時製造代表可能有相同表現||
+|group.length|該群數量|table(group)|
+|cost.time|該製程耗時，耗時過長或過短，可能是因為產品出問題|max-min|
+|pcost.time|與上一個產品相比，製程耗時差距，差距過大，可能是因為產品出問題|cost.time-c(NA,cost.time[1:length(cost.time)-1])|
+|ncost.time|與下一個產品相比，製程耗時差距，差距過大，可能是因為產品出問題|cost.time-c(cost.time[2:length(cost.time)],NA)|
+|pna.amount|與上一個產品相比，na數量，差距過大，可能是因為產品出問題|na.amount--c(NA,na.amount[1:length(na.amount)-1])|
+|nna.amount|與下一個產品相比，na數量，差距過大，可能是因為產品出問題|na.amount--c(na.amount[2:length(na.amount)],NA)|
+|prev.target|上一個產品表現，彼此間可能相關|c(NA,target[1:(nrow(target)-1)])|
+|next.target|下一個產品表現，彼此間可能相關|c(target[2:nrow(target)],NA)|
 
 
 
