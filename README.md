@@ -16,8 +16,9 @@
 問題是，NA過多，一般統計方法 AIC/BIC/lasso 無法處理missing value，
 因此轉往使用 XGB 內建的 importance 找出重要變數。
 首先單純使用 numeeric data 中進行預測，表現差，轉往使用其他 data ，
-並參考 https://www.kaggle.com/danielfg/xgboost-reg-linear-lb-0-485/code/code 的作法，
-對 date data 進行 Feature Engineering 。
+並參考kernel中第二名的作法，對 date data 進行 Feature Engineering 。
+
+kernel : https://www.kaggle.com/danielfg/xgboost-reg-linear-lb-0-485/code/code
 
 # 特徵工程
 
