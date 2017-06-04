@@ -18,7 +18,7 @@
 首先單純使用 numeeric data 中進行預測，表現差，轉往使用其他 data ，
 並參考kernel中第二名的作法，對 date data 進行 Feature Engineering 。
 
-kernel : https://www.kaggle.com/danielfg/xgboost-reg-linear-lb-0-485/code/code
+kernel : https://www.kaggle.com/danielfg/xgboost-reg-linear-lb-0-485/code/code <br>
 PS:RandPro 隨機降維可能是不錯的方法，http://steve-chen.tw/?p=611
 
 # 特徵工程
