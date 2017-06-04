@@ -1,7 +1,23 @@
-# kaggle_Production_Line
+# 製程分析
+ kaggle_Production_Line
+ website : 
+ https://www.kaggle.com/c/bosch-production-line-performance
 
-kaggle website : 
-https://www.kaggle.com/c/bosch-production-line-performance
+該問題提供以下data 
+
+|data|size|
+|----|----|
+|numeric|2.1GB|
+|date|2.9GB|
+|categorical|2.7GB|
+
+製程分析與我過去處理過的資料---銷售/庫存預測非常不同，90%以上都是NA，
+而在生產線上，這是合理的，我們必須找出哪個製程出現問題，即重要變數。
+問題是，NA過多，一般統計方法 AIC/BIC/lasso 無法處理missing value，
+因此轉往使用 XGB 內建的 importance 找出重要變數。
+首先單純使用 numeeric data 中進行預測，表現差，轉往使用其他 data ，
+並參考 https://www.kaggle.com/danielfg/xgboost-reg-linear-lb-0-485/code/code 的作法，
+對 date data 進行 Feature Engineering 。
 
 # 特徵工程
 
