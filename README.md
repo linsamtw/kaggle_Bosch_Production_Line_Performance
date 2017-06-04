@@ -6,7 +6,7 @@
  該篇文章介紹對於製程分析上，一種不錯的方法，重點在於 Feature Engineering 。
  由於我沒有相關製程經驗，以下內容參考 <br>
  https://www.kaggle.com/danielfg/xgboost-reg-linear-lb-0-485/code/code <br>
- 的 code ，未來對於相關問題，此篇文章可以作為參考<br>
+ 的 code ，未來對於類似問題，此篇文章可以作為參考<br>
  
 該問題提供以下data 
 
