@@ -22,7 +22,6 @@
  的 code ，並加入我的想法，主要重點在於 --- Feature Engineering 。
 
  # 資料準備 
- ## 資料大小
  Kaggle 所提供的資料，可以分為以下三種 :
  
 |data|size|n (資料筆數)|p (變數數量)|
@@ -33,6 +32,18 @@
 |test_numeric|2.7GB|100萬筆|970個|
 |test_date|2.7GB|100萬筆|970個|
 |test_categorical|2.7GB|100萬筆|970個|
+
+主要變數如下 :
+|變數名稱|意義|
+|-------|----|
+|Response|目標值, 0 : 良品, 1 : 不良品|
+|Id|產品代號|
+|Lx_Sx_Fx|L : line，S : station，F : feature number|
+
+舉例來說，L3_S36_F3939，代表第 3 條生產線上，第 36 個設備中的第 3939 個特徵值，
+而 numeric 中代表的是，產品在該設備中收集到的值， date 代表產品經過該設備的時間點 ，
+我們並沒有使用 categorical，因此並不清楚該變數意義。
+
 
 # 特徵工程
 
