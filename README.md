@@ -133,6 +133,8 @@ ex : all_first, L0_first, L1_first, L2_first, L3_first <br>
 而不良品比率最高的設備，其不良品佔所有產品中約 0.045，
 設備 ID 為 L3_S32_F3850。
 
+ train_numeric :
+ 
 |-|res1.per|var.name|
 |-|--------|--------|
 |1|0.0451|L3_S32_F3850|
