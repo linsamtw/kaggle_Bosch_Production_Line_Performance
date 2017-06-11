@@ -221,7 +221,7 @@ Best iteration : 67, train-rmse:0.060464	test-rmse:0.065220
 
 # 50 feature
   
-  train_numeric
+  ### train_numeric
   
   | | | | | | | | | |
   |-|-|-|-|-|-|-|-|-|
@@ -231,7 +231,7 @@ Best iteration : 67, train-rmse:0.060464	test-rmse:0.065220
   |L1_S24_F1844| |L3_S38_F3960| |L2_S26_F3036| |L2_S26_F3040| |L2_S26_F3047|
   |L2_S26_F3073| |L1_S24_F1672| |L1_S24_F1609| |L1_S24_F1685|
 
-  feature of train_date 
+  ### feature of train_date 
 
   | | | | | | | |    
   |-|-|-|-|-|-|-|    
