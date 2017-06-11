@@ -153,6 +153,13 @@ ex : all_first, L0_first, L1_first, L2_first, L3_first <br>
 其中一點需要注意的是， xgb.cv 的 bset nrounds 並不代表最好的 nrounds，
 我們藉由觀察 xgb.cv ，調整最後的 nrounds 。
 
+amount of var  = 450
+
+| | |pred| |
+|-|-|----|-|
+|    |  |0      |1   |
+|real| 0|1176304|564 |
+||     1|4360   |2519|
 ### 3.5 other 
 
 該問題是有關二元分類問題，umblance 問題非常嚴重，
