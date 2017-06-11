@@ -22,7 +22,7 @@
  [Daniel FG](https://www.kaggle.com/danielfg/xgboost-reg-linear-lb-0-485)
  的 code ，並加入我的想法，主要重點在於 --- Feature Engineering 。
 
- # 資料準備 
+ ## 資料準備 
  Kaggle 所提供的資料，可以分為以下六種 :
  
 |data|size|n (資料筆數)|p (變數數量)|
