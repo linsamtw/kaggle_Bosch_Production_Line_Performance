@@ -244,7 +244,7 @@ Best iteration : 67, train-rmse:0.060464	test-rmse:0.065220
   |order.same.time|  |L0_last|     
 
 
-
+![feature](https://github.com/f496328mm/kaggle_Production_Line/blob/master/product.importance.jpg)
 
 
 
