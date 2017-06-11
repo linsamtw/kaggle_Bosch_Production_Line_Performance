@@ -1,15 +1,19 @@
-# 製程分析---Bosch Production Line Performance 
+# 製程分析---Bosch Production Line Performance , NO.74, top 6%
  kaggle_Production_Line
  website : 
  https://www.kaggle.com/c/bosch-production-line-performance
+ # 資料介紹
+ Bosch Production Line Performance 是關於生產線的分析，
+ 在自動化製造產品的過程中，可能由於設備老舊或人為疏失，導致不良品的產生，
+ 但是我們不可能一一去檢驗哪個環節出錯，因為整個製程中超過 2000 道程序。
+ 因此，我們希望藉由製程分析，找出導致不良品產生的因素。
  
- 該篇文章介紹對於製程分析上，一種不錯的方法，重點在於 Feature Engineering 。
- 由於我沒有相關製程經驗，以下內容參考 <br>
- https://www.kaggle.com/danielfg/xgboost-reg-linear-lb-0-485/code/code <br>
- 的 code ，未來對於類似問題，此篇文章可以作為參考<br>
- 
-該問題提供以下data 
+ 由於我沒有相關製程經驗，也無實際接觸生產線，所以參考kernel中
+ [Daniel FG](https://www.kaggle.com/danielfg/xgboost-reg-linear-lb-0-485)
+ 的 code ，並加入我的想法，主要重點在於 --- Feature Engineering 。
 
+ # 資料準備 
+ ## 資料大小
 |data|size|n (資料筆數)|p (變數數量)|
 |----|----|-----------|-----------|
 |numeric|2.1GB|100萬筆|970個|
