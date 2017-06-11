@@ -1,7 +1,7 @@
 # Bosch Production Line Performance, NO.74/top 6%
  [Bosch Production Line Performance](https://www.kaggle.com/c/bosch-production-line-performance )<br>
- 結論 : 原始變數超過 4000 種，而我們的 fitted model 只使用 100 個變數，
- 即可達到 top 6% ，因此這 100 個變數是重要變數，對於提高良率方面，可以先從這些變數下手。
+ 結論 : 原始變數超過 4000 種，而我們的 fitted model 只使用 50 個變數，
+ 即可達到 top 6% ，因此這 50 個變數是重要變數，對於提高良率方面，可以先從這些變數下手。
  
  # 緒論
  在現今的產業上，對於產品製造，大多都傾向自動化，因此我選擇該問題進行製程分析。 
@@ -50,7 +50,7 @@
 該問題的 evaluation 是 [MCC](https://en.wikipedia.org/wiki/Matthews_correlation_coefficient) 。
 
 # 特徵製造
-# feature engineering 1 ( 特徵工程 1 )
+## feature engineering 1 ( 特徵工程 1 )
 
 在生產線上，可能在某一時段機器故障，導致產品出現問題，所以對 date data 進行特徵工程。
  
@@ -69,10 +69,10 @@ ex : all_first, L0_first, L1_first, L2_first, L3_first <br>
 在 feature engineering 1 階段， kaggle rank 約在 50% ，
 結果不夠好，因此將進行，feature engineering 2。
 
-# 特徵工程2
+## feature engineering 2 ( 特徵工程 2 )
 
 在生產線上，同一時間製造多個產品，它們的表現可能有高度相關，因此進行以下特徵工程。<br>
-注意：first[is.na(first)]=0，否則對其他feature製造會產生na
+注意：first[is.na(first)] = 0，否則對其他的 feature 製造會產生na。
 
 |feature|解釋|code|
 |-------|----|----|
@@ -90,6 +90,40 @@ ex : all_first, L0_first, L1_first, L2_first, L3_first <br>
 |nna.amount|與下一個產品相比，na數量，差距過大，可能是因為產品出問題|na.amount--c(na.amount[2:length(na.amount)],NA)|
 |prev.target|上一個產品表現，彼此間可能相關|c(NA,target[1:(nrow(target)-1)])|
 |next.target|下一個產品表現，彼此間可能相關|c(target[2:nrow(target)],NA)|
+
+以上變數均對 所有生產線 進行特徵工程，並沒有對 L0~L3 進行特徵工程。
+
+## 變數選擇
+
+由於原始資料變數過多，資料龐大，不易建模，而在實際製程方面，
+出問題的設備只佔極少數，因此，
+我們對於 train_numeric 中的所有變數，進行變數選擇。
+
+由於每個產品經過的製程不同，某些製程可能導致不良品產生，
+因此我們對於所有製程，計算 不良品 比率，並進行排序，
+選擇該比例中，前 100 個變數與後 100 個變數，作為特徵變數。
+
+前 100 代表產出不良品比率高，有助於預測不良品，
+而後 100 代表產出良品比例高，有助於預測良品。
+實際上，不良品佔所有產品中約 0.058，
+而不良品比率最高的設備，其不良品佔所有產品中約 0.045，
+設備 ID 為 L3_S32_F3850。
+
+## feature selection
+藉由 feature engineering 1、feature engineering 2 與變數選擇，
+製造約 300 個變數。我們利用這些變數進行 xgb 建模，並在模型建立後，
+使用 xgb.importance 函數找出前 50 個重要變數，
+選擇這 50 個變數作為 fitted model 的 feature。
+
+
+
+
+
+
+
+
+
+
 
 
 
