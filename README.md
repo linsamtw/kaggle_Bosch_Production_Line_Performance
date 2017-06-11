@@ -243,6 +243,7 @@ Best iteration : 67, train-rmse:0.060464	test-rmse:0.065220
   |all_first|        |all_class.amount| |L1_first|         |L3_max|          
   |order.same.time|  |L0_last|     
 
+feature plot :
 
 ![feature](https://github.com/f496328mm/kaggle_Production_Line/blob/master/product.importance.jpg)
 
