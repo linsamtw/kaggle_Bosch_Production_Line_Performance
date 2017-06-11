@@ -27,8 +27,8 @@
  
 |data|size|n (資料筆數)|p (變數數量)|在 R 中佔的 ram |
 |----|----|-----------|-----------|----------------|
-|train_numeric|2.1GB|100萬筆|970個|8.5gb|
-|train_date|2.9GB|100萬筆|1157個|10.2gb|
+|train_numeric|2.1GB|100萬筆|970個|8.5 gb|
+|train_date|2.9GB|100萬筆|1157個|10.2 gb|
 |train_categorical|2.7GB|100萬筆|2141個||
 |test_numeric|2.1GB|100萬筆|969個||
 |test_date|2.9GB|100萬筆|1157個||
