@@ -3,8 +3,7 @@
  結論 : 原始變數超過 4000 種，而我們的 Fitted model 只使用 50 個變數，
  即可達到 top 6% ，因此這 50 個變數是重要變數，對於提高良率方面，可以先從這些變數下手。
  
- 注意 : 提供的 R code 由於使用到 parallel package 中的 mclapply 函數，
-        因此只能在 linux 系統下執行。
+ 注意 : 提供的 R code 由於使用到 parallel package 中的 mclapply 函數，因此只能在 linux 系統下執行。
         或者你可以把 mclapply 改成 sapply，兩者主要是時間上的差異。
  
  # 1. 緒論
