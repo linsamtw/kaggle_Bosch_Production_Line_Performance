@@ -196,11 +196,11 @@ Best iteration : 67, train-rmse:0.060464	test-rmse:0.065220
 
 ### 3.5 other 
 
-該問題是有關二元分類問題，umblance 問題非常嚴重，
-而且此問題的 evaluation --- MCC 並沒有在 XGBoost 的 evaluation 中，因此我們進行以下處理：
+該問題是有關二元分類問題，imblance 非常嚴重，
+而且 evaluation --- MCC 並沒有在 XGBoost 的 evaluation 中，因此我們進行以下處理：
 
 1. 使用 XGBoost 內建的 rmse 逼近 MCC。
-2. umblance 處理上，先將 target 轉換為數值，則問題轉變為迴歸問題，
+2. imblance 處理上，先將 target 轉換為數值，則問題轉變為迴歸問題，
    並使用 0.25 作為分界點，大於 0.25 是 1，小於 0.25 則是 0 。
    由於 0 佔大多數，因此分界點往 0 靠近。
    
@@ -211,7 +211,7 @@ Best iteration : 67, train-rmse:0.060464	test-rmse:0.065220
 並使用這些 feature 進行建模預測。
 由於 XGBoost 中的 evaluation 沒有 MCC ，我們使用 rmse 逼近它，
 由於該問題是關於二元分類，unblance 非常嚴重，我們將它轉換為迴歸問題，
-並使用 rate = 0.25 作為分界點，藉此處理部分的 umblance 問題，
+並使用 rate = 0.25 作為分界點，藉此處理部分的 imblance 問題，
 
 最後的 Fitted model 達到 top 6% 的 rank ，
 與先前沒有進行特徵製造相比， MCC 進步了 2 倍以上 ( 0.18 -> 0.46 )，
