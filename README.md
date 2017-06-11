@@ -152,9 +152,6 @@ ex : all_first, L0_first, L1_first, L2_first, L3_first <br>
 使用 xgb.importance 函數找出前 50 個重要變數，
 選擇這 50 個變數作為 fitted model 的 feature。
 
-其中一點需要注意的是， xgb.cv 的 bset nrounds 並不代表最好的 nrounds，
-我們藉由觀察 xgb.cv ，調整最後的 nrounds 。
-
 amount of var  = 450
 
 | | |pred| |
@@ -164,6 +161,8 @@ amount of var  = 450
 ||     1|4216   |2663|
 
 MCC = 0.568
+
+
 
 amount of var  = 50
 
@@ -176,6 +175,20 @@ amount of var  = 50
 MCC = 0.545
 
 
+其中一點需要注意的是， xgb.cv 的 bset nrounds 並不代表最好的 nrounds，
+我們藉由觀察 xgb.cv ，調整最後的 nrounds 。
+
+|nrounds|train-rmse|test-rmse|
+|-------|----------|---------|
+|11| 0.168337|0.168881 |
+|21|	0.083219|0.085046 | 
+|31|	0.064824|0.067989 | 
+|41|	0.061830|0.065582 | 
+|51|	0.061191|0.065279 | 
+|61|	0.060756|0.065227 | 
+|71|	0.060327|0.065229 |
+
+Best iteration : 67, train-rmse:0.060464	test-rmse:0.065220
 
 ### 3.5 other 
 
