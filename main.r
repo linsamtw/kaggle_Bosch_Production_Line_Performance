@@ -84,7 +84,7 @@ gc()
 temp = work.xgb.feature.fun(train.var.name,
                             model.xgb1,
                             final.data.feature,
-                            feature.amount=200
+                            feature.amount=100
 )
 var.feature = temp[[1]]
 final.data.feature2 = temp[[2]]
@@ -149,6 +149,7 @@ my.xgb.model  = temp[[1]]
 dtrain        = temp[[2]]
 train.numeric = temp[[3]]
 # nrounds=50 : train-rmse:0.064347
+# feature 100: train-rmse:0.061552
 #-----------------------------------------------------------------
 # compare train mcc score
 pred1<-predict(my.xgb.model,dtrain)
@@ -159,6 +160,7 @@ mcc.evaluation.fun(t1)
 # nrounds=50 : 0.5164973
 # feature2-2 : 0.5374545
 # rate = 0.25: 0.5437629
+# feature 100: 0.5482553
 #-----------------------------------------------------------------
 rm(train.numeric)
 gc()
@@ -182,6 +184,7 @@ fwrite(final.pred,"value.csv")
 # nrounds = 50. 0.39905 0.39144, rank: 434, 429, 31.6%/31.2%
 # feature2-2,   0.45015 0.45188, rank: 126, 108, 9.2%/7.9%
 # rate = 0.25   0.46471 0.47034, rank: 82, 74, 6.0%/5.4%
+# feature 100   0.46673 0.47352, rank: 78, 66, 5.7%/4.8%
 
 
 
