@@ -1,6 +1,6 @@
 # Bosch Production Line Performance, NO.74/top 6%
  [Bosch Production Line Performance](https://www.kaggle.com/c/bosch-production-line-performance )<br>
- 結論 : 原始變數超過 4000 種，而我們的 fitted model 只使用 50 個變數，
+ 結論 : 原始變數超過 4000 種，而我們的 Fitted model 只使用 50 個變數，
  即可達到 top 6% ，因此這 50 個變數是重要變數，對於提高良率方面，可以先從這些變數下手。
  
  # 緒論
@@ -111,9 +111,22 @@ ex : all_first, L0_first, L1_first, L2_first, L3_first <br>
 
 ### feature selection
 藉由 feature engineering 1、feature engineering 2 與變數選擇，
-製造約 300 個變數。我們利用這些變數進行 xgb 建模，並在模型建立後，
+製造約 450 個變數。我們利用這些變數進行 XGBoost 建模，
+主要利用 xgb.cv 找出 bset nrounds ， 並利用 bset nrounds 在進行建模，
+在模型建立後，
 使用 xgb.importance 函數找出前 50 個重要變數，
 選擇這 50 個變數作為 fitted model 的 feature。
+
+其中一點需要注意的是， xgb.cv 的 bset nrounds 並不代表最好的 nrounds，
+我們藉由觀察 xgb.cv ，調整最後的 nrounds 。
+
+# Fitted model
+該問題是有關二元分類問題，unblance 問題非常嚴重，
+而且此問題的 evaluation --- MCC 並沒有在 XGBoost 的 evaluation 中，因此我們進行以下處理：
+
+1. 使用 XGBoost 內建的 rmse 逼近 MCC，rmse 是常見的準則
+
+
 
 
 
