@@ -2,6 +2,14 @@
  kaggle_Production_Line
  website : 
  https://www.kaggle.com/c/bosch-production-line-performance
+ # 緒論
+ 製程分析與我過去處理過的資料---銷售/庫存預測非常不同，90%以上都是NA，
+ 而在生產線上，這是合理的，我們必須找出哪個製程出現問題，即重要變數。
+ 問題是，NA過多，一般統計方法 AIC/BIC/lasso 無法處理missing value，
+ 因此轉往使用 XGB 內建的 importance 找出重要變數。
+ 首先單純使用 numeeric data 中進行預測，表現差，轉往使用其他 data ，
+ 並參考kernel中[Daniel FG](https://www.kaggle.com/danielfg/xgboost-reg-linear-lb-0-485)的作法，
+ 對 date data 進行 Feature Engineering 。
  # 資料介紹
  Bosch Production Line Performance 是關於生產線( 製程 )的分析，
  在自動化製造產品的過程中，可能由於設備老舊或人為疏失，導致不良品的產生，
@@ -18,18 +26,12 @@
  
 |data|size|n (資料筆數)|p (變數數量)|
 |----|----|-----------|-----------|
-|numeric|2.1GB|100萬筆|970個|
-|date|2.9GB|100萬筆|970個|
-|categorical|2.7GB|100萬筆|970個|
-
-製程分析與我過去處理過的資料---銷售/庫存預測非常不同，90%以上都是NA，
-而在生產線上，這是合理的，我們必須找出哪個製程出現問題，即重要變數。
-問題是，NA過多，一般統計方法 AIC/BIC/lasso 無法處理missing value，
-因此轉往使用 XGB 內建的 importance 找出重要變數。
-首先單純使用 numeeric data 中進行預測，表現差，轉往使用其他 data ，
-並參考kernel中第二名的作法，對 date data 進行 Feature Engineering 。
-
-PS:RandPro 隨機降維可能是不錯的方法，http://steve-chen.tw/?p=611
+|train_numeric|2.1GB|100萬筆|970個|
+|train_date|2.9GB|100萬筆|970個|
+|train_categorical|2.7GB|100萬筆|970個|
+|test_numeric|2.7GB|100萬筆|970個|
+|test_date|2.7GB|100萬筆|970個|
+|test_categorical|2.7GB|100萬筆|970個|
 
 # 特徵工程
 
