@@ -1,4 +1,5 @@
-# 製程分析---Bosch Production Line Performance , NO.74, top 6%
+# 製程分析---Bosch Production Line Performance 
+# NO.74, top 6%
  kaggle_Production_Line
  website : 
  https://www.kaggle.com/c/bosch-production-line-performance
