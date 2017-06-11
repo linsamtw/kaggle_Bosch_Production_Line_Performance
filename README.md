@@ -22,7 +22,7 @@
  [Daniel FG](https://www.kaggle.com/danielfg/xgboost-reg-linear-lb-0-485)
  的 code ，並加入我的想法，主要重點在於 --- Feature Engineering 。
 
- ## 資料準備 
+ ### 資料準備 
  Kaggle 所提供的資料，可以分為以下六種 :
  
 |data|size|n (資料筆數)|p (變數數量)|
@@ -50,7 +50,7 @@
 該問題的 evaluation 是 [MCC](https://en.wikipedia.org/wiki/Matthews_correlation_coefficient) 。
 
 # 特徵製造
-## feature engineering 1 ( 特徵工程 1 )
+### feature engineering 1 ( 特徵工程 1 )
 
 在生產線上，可能在某一時段機器故障，導致產品出現問題，所以對 date data 進行特徵工程。
  
@@ -69,7 +69,7 @@ ex : all_first, L0_first, L1_first, L2_first, L3_first <br>
 在 feature engineering 1 階段， kaggle rank 約在 50% ，
 結果不夠好，因此將進行，feature engineering 2。
 
-## feature engineering 2 ( 特徵工程 2 )
+### feature engineering 2 ( 特徵工程 2 )
 
 在生產線上，同一時間製造多個產品，它們的表現可能有高度相關，因此進行以下特徵工程。<br>
 注意：first[is.na(first)] = 0，否則對其他的 feature 製造會產生na。
@@ -93,7 +93,7 @@ ex : all_first, L0_first, L1_first, L2_first, L3_first <br>
 
 以上變數均對 所有生產線 進行特徵工程，並沒有對 L0~L3 進行特徵工程。
 
-## 變數選擇
+### 變數選擇
 
 由於原始資料變數過多，資料龐大，不易建模，而在實際製程方面，
 出問題的設備只佔極少數，因此，
@@ -109,7 +109,7 @@ ex : all_first, L0_first, L1_first, L2_first, L3_first <br>
 而不良品比率最高的設備，其不良品佔所有產品中約 0.045，
 設備 ID 為 L3_S32_F3850。
 
-## feature selection
+### feature selection
 藉由 feature engineering 1、feature engineering 2 與變數選擇，
 製造約 300 個變數。我們利用這些變數進行 xgb 建模，並在模型建立後，
 使用 xgb.importance 函數找出前 50 個重要變數，
