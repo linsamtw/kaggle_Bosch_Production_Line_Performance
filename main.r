@@ -57,6 +57,9 @@ train.var.name= temp[[4]]
 # fix work.feature code
 # [129]	train-rmse:0.061196+0.000326	test-rmse:0.067605+0.000484
 # [129]	train-rmse:0.062397
+# add feature 2-2
+# [67]	train-rmse:0.060464+0.000243	test-rmse:0.065220+0.000609
+# [67]	train-rmse:0.060909
 #----------------------------------------------------------
 # compare mcc score, because eval of xgb.model is rmse
 pred1<-predict(model.xgb1,dtrain)
@@ -75,7 +78,8 @@ mcc.evaluation.fun(t1)
 # L0~all 0.3378502 rate = 0.25:0.3516619, rate = 0.3:0.3520926, rate = 0.2:0.3378502
 # add feature2 0.5339928
 # fix work.feature code 0.5653452
-# feature2-2 0.5574488
+# feature2-2   0.5574488
+# rate = 0.25, 0.5680134
 #----------------------------------------------------------  
 rm(train.numeric,dtrain)
 gc()
@@ -84,11 +88,12 @@ gc()
 temp = work.xgb.feature.fun(train.var.name,
                             model.xgb1,
                             final.data.feature,
-                            feature.amount=100
+                            feature.amount=50
 )
 var.feature = temp[[1]]
 final.data.feature2 = temp[[2]]
-
+var.feature
+colnames(final.data.feature2)
 #colnames(train.numeric)
 #temp = work.model.xgb2.fun(var.feature,
 #                           final.data.feature2
@@ -161,6 +166,7 @@ mcc.evaluation.fun(t1)
 # feature2-2 : 0.5374545
 # rate = 0.25: 0.5437629
 # feature 100: 0.5482553
+# feature 50 : 0.5453945
 #-----------------------------------------------------------------
 rm(train.numeric)
 gc()
@@ -185,6 +191,7 @@ fwrite(final.pred,"value.csv")
 # feature2-2,   0.45015 0.45188, rank: 126, 108, 9.2%/7.9%
 # rate = 0.25   0.46471 0.47034, rank: 82, 74, 6.0%/5.4%
 # feature 100   0.46673 0.47352, rank: 78, 66, 5.7%/4.8%
+# feature 50    0.46995 0.47009, rank: 74, 75, 5.7%/4.8%
 
 
 
