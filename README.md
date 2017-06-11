@@ -1,5 +1,5 @@
 # Bosch Production Line Performance, NO.74/top 6%
- [kaggle_Production_Line](https://www.kaggle.com/c/bosch-production-line-performance )<br>
+ [Bosch Production Line Performance](https://www.kaggle.com/c/bosch-production-line-performance )<br>
  結論 : 原始變數超過 4000 種，而我們的 fitted model 只使用 100 個變數，
  即可達到 top 6% ，因此這 100 個變數是重要變數，對於提高良率方面，可以先從這些變數下手。
  
