@@ -25,14 +25,14 @@
  ### 資料準備 
  Kaggle 所提供的資料，可以分為以下六種 :
  
-|data|size|n (資料筆數)|p (變數數量)|
-|----|----|-----------|-----------|
-|train_numeric|2.1GB|100萬筆|970個|
-|train_date|2.9GB|100萬筆|1157個|
-|train_categorical|2.7GB|100萬筆|2141個|
-|test_numeric|2.1GB|100萬筆|969個|
-|test_date|2.9GB|100萬筆|1157個|
-|test_categorical|2.7GB|100萬筆|2141個|
+|data|size|n (資料筆數)|p (變數數量)|在 R 中佔的 ram |
+|----|----|-----------|-----------|----------------|
+|train_numeric|2.1GB|100萬筆|970個|8.5gb|
+|train_date|2.9GB|100萬筆|1157個|10.2gb|
+|train_categorical|2.7GB|100萬筆|2141個||
+|test_numeric|2.1GB|100萬筆|969個||
+|test_date|2.9GB|100萬筆|1157個||
+|test_categorical|2.7GB|100萬筆|2141個||
 
 主要變數如下 :
 
@@ -124,7 +124,12 @@ ex : all_first, L0_first, L1_first, L2_first, L3_first <br>
 該問題是有關二元分類問題，unblance 問題非常嚴重，
 而且此問題的 evaluation --- MCC 並沒有在 XGBoost 的 evaluation 中，因此我們進行以下處理：
 
-1. 使用 XGBoost 內建的 rmse 逼近 MCC，rmse 是常見的準則
+1. 使用 XGBoost 內建的 rmse 逼近 MCC。
+2. unblance 處理上，先將 target 轉換為數值，則問題轉變為迴歸問題，
+   並使用 0.25 作為分界點，大於 0.25 是 1，小於 0.25 則是 0 。
+   由於 0 佔大多數，因此分界點往 0 靠近。
+   
+最後利用 
 
 
 
