@@ -18,7 +18,12 @@
  在自動化製造產品的過程中，可能由於設備老舊或人為疏失，導致不良品的產生，
  但是我們不可能單純利用人工檢驗哪個環節出錯，因為整個製程中超過 4000 道程序。
  因此，我們希望藉由製程分析，找出導致不良品產生的因素。
-
+ 
+ |Response|1|0|
+ |--------|-|-|
+ ||1176868|6879|
+ 
+ rate of Response 1 = 0.0058
  ### 2.1 資料準備 
  Kaggle 所提供的資料，可以分為以下六種 :
  
@@ -106,6 +111,15 @@ ex : all_first, L0_first, L1_first, L2_first, L3_first <br>
 而不良品比率最高的設備，其不良品佔所有產品中約 0.045，
 設備 ID 為 L3_S32_F3850。
 
+|-|res1.per|var.name|
+|-|--------|--------|
+|1|0.0451|L3_S32_F3850|
+|2|0.0093|L1_S24_F1768|
+|3|0.0093|L1_S24_F1763|
+|.|.|.|
+|.|.|.|
+|968|0.0003|L1_S25_F2512|
+
 ### 3.4 feature selection
 藉由 feature engineering 1、feature engineering 2 與變數選擇，
 製造約 450 個變數。我們利用這些變數進行 XGBoost 建模，
@@ -119,11 +133,11 @@ ex : all_first, L0_first, L1_first, L2_first, L3_first <br>
 
 ### 3.5 other 
 
-該問題是有關二元分類問題，unblance 問題非常嚴重，
+該問題是有關二元分類問題，umblance 問題非常嚴重，
 而且此問題的 evaluation --- MCC 並沒有在 XGBoost 的 evaluation 中，因此我們進行以下處理：
 
 1. 使用 XGBoost 內建的 rmse 逼近 MCC。
-2. unblance 處理上，先將 target 轉換為數值，則問題轉變為迴歸問題，
+2. umblance 處理上，先將 target 轉換為數值，則問題轉變為迴歸問題，
    並使用 0.25 作為分界點，大於 0.25 是 1，小於 0.25 則是 0 。
    由於 0 佔大多數，因此分界點往 0 靠近。
    
@@ -134,7 +148,7 @@ ex : all_first, L0_first, L1_first, L2_first, L3_first <br>
 並使用這些 feature 進行建模預測。
 由於 XGBoost 中的 evaluation 沒有 MCC ，我們使用 rmse 逼近它，
 由於該問題是關於二元分類，unblance 非常嚴重，我們將它轉換為迴歸問題，
-並使用 rate = 0.25 作為分界點，藉此處理部分的 unblance 問題，
+並使用 rate = 0.25 作為分界點，藉此處理部分的 umblance 問題，
 
 最後的 Fitted model 達到 top 6% 的 rank ，
 與先前沒有進行特徵製造相比， MCC 進步了 2 倍以上 ( 0.18 -> 0.46 )，
