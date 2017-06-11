@@ -22,16 +22,16 @@
  的 code ，並加入我的想法，主要重點在於 --- Feature Engineering 。
 
  # 資料準備 
- Kaggle 所提供的資料，可以分為以下三種 :
+ Kaggle 所提供的資料，可以分為以下六種 :
  
 |data|size|n (資料筆數)|p (變數數量)|
 |----|----|-----------|-----------|
 |train_numeric|2.1GB|100萬筆|970個|
-|train_date|2.9GB|100萬筆|970個|
-|train_categorical|2.7GB|100萬筆|970個|
-|test_numeric|2.7GB|100萬筆|970個|
-|test_date|2.7GB|100萬筆|970個|
-|test_categorical|2.7GB|100萬筆|970個|
+|train_date|2.9GB|100萬筆|1157個|
+|train_categorical|2.7GB|100萬筆|2141個|
+|test_numeric|2.1GB|100萬筆|969個|
+|test_date|2.9GB|100萬筆|1157個|
+|test_categorical|2.7GB|100萬筆|2141個|
 
 主要變數如下 :
 
@@ -45,8 +45,11 @@
 而 numeric 中代表的是，產品在該設備中收集到的值， date 代表產品經過該設備的時間點 ，
 我們並沒有使用 categorical，因此並不清楚該變數意義。
 
+由於變數過多，如何找到重要變的方法，將在稍後的章節中提到。
+該問題的 evaluation 是 [MCC](https://en.wikipedia.org/wiki/Matthews_correlation_coefficient) 。
 
-# 特徵工程
+# 特徵製造
+# feature engineering 1 ( 特徵工程 1 )
 
 在生產線上，可能在某一時段機器故障，導致產品出現問題，所以對 date data 進行特徵工程。
  
@@ -59,9 +62,11 @@
 |class.amount|該製成時間點種類數量|
 |na.amount|na數量，如果時間點完全記錄，那該變數代表未經過製程的數量|
 
-以上分別對 所有生產線、L0、L1、L2、L3 進行特徵工程。
-由於 data 過大，分段製造 feature ，並在 linux 環境下使用 mclapply 平行運算加速，<br>
-以上仍無法提高預測準確率，因此進行 特徵工程-2
+以上分別對 所有生產線、L0、L1、L2、L3 進行特徵工程，製造特徵變數。
+ex : all_first, L0_first, L1_first, L2_first, L3_first <br>
+由於 data 過大，進行分段處理，每次讀取 100 萬筆資料，製造 feature ，
+在 feature engineering 1 階段， kaggle rank 約在 50% ，
+結果不夠好，因此將進行，feature engineering 2。
 
 # 特徵工程2
 
