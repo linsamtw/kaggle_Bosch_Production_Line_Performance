@@ -129,10 +129,16 @@ ex : all_first, L0_first, L1_first, L2_first, L3_first <br>
    
 # 4. Fitted model
 
-由於資料過大
-   
-利用 chapter 3 特徵製造，製造變數，並選擇出 50 個 feature ，
-再利用 XGBoost 模型，進行預測，，
+由於資料過大，我們分段進行 feature engineering 1、feature engineering 2 
+與 train_numeric 中的變數選擇，再利用 xgb.imporance 挑選出 50 個 feature ，
+並使用這些 feature 進行建模預測。
+由於 XGBoost 中的 evaluation 沒有 MCC ，我們使用 rmse 逼近它，
+由於該問題是關於二元分類，unblance 非常嚴重，我們將它轉換為迴歸問題，
+並使用 rate = 0.25 作為分界點，藉此處理部分的 unblance 問題，
+
+最後的 Fitted model 達到 top 6% 的 rank ，
+與先前沒有進行特徵製造相比， MCC 進步了 2 倍以上 ( 0.18 -> 0.46 )，
+可以說明該 特徵製造 找出了相對重要的 feature 。
 
 
 
