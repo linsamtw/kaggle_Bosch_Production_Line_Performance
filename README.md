@@ -3,17 +3,18 @@
  website : 
  https://www.kaggle.com/c/bosch-production-line-performance
  # 緒論
+ 在現今的產業上，對於產品製造，大多都傾向自動化，因此我選擇該問題進行製程分析。 
  製程分析與我過去處理過的資料---銷售/庫存預測非常不同，90%以上都是NA，
- 而在生產線上，這是合理的，我們必須找出哪個製程出現問題，即重要變數。
+ 而在生產線上，這是合理的，我們必須找出哪個製程出錯，即重要變數。
  問題是，NA過多，一般統計方法 AIC/BIC/lasso 無法處理missing value，
  因此轉往使用 XGB 內建的 importance 找出重要變數。
- 首先單純使用 numeeric data 中進行預測，表現差，轉往使用其他 data ，
  並參考kernel中[Daniel FG](https://www.kaggle.com/danielfg/xgboost-reg-linear-lb-0-485)的作法，
- 對 date data 進行 Feature Engineering 。
+ 進行 Feature Engineering 。
+ 
  # 資料介紹
  Bosch Production Line Performance 是關於生產線( 製程 )的分析，
  在自動化製造產品的過程中，可能由於設備老舊或人為疏失，導致不良品的產生，
- 但是我們不可能一一去檢驗哪個環節出錯，因為整個製程中超過 2000 道程序。
+ 但是我們不可能單純利用人工檢驗哪個環節出錯，因為整個製程中超過 3000 道程序。
  因此，我們希望藉由製程分析，找出導致不良品產生的因素。
  
  由於我沒有相關製程經驗，也無實際接觸生產線，所以參考kernel中
