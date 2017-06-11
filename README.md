@@ -245,7 +245,7 @@ Best iteration : 67, train-rmse:0.060464	test-rmse:0.065220
 
 feature plot :
 
-![feature](http://imgur.com/CEsWME2)
+![feature](https://github.com/f496328mm/kaggle_Production_Line/blob/master/product.importance.jpg)
 
 
 
@@ -260,6 +260,6 @@ feature plot :
 
 
 
-
+ 
 
 
