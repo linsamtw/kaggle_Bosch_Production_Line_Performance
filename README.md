@@ -229,7 +229,7 @@ Best iteration : 67, train-rmse:0.060464	test-rmse:0.065220
   
   | | | | | | | | | |
   |-|-|-|-|-|-|-|-|-|
-  |L3_S32_F3850| |L1_S24_F1723| |L3_S33_F3859| |L3_S33_F3855| |L1_S24_F1846|
+  |L3_S32_F3850**| |L1_S24_F1723**| |L3_S33_F3859**| |L3_S33_F3855| |L1_S24_F1846|
   |L3_S33_F3865| |L1_S24_F1632| |L3_S33_F3857| |L3_S38_F3956| |L1_S24_F1498|
   |L1_S24_F1604| |L3_S41_F4014| |L1_S24_F1695| |L3_S38_F3952| |L3_S33_F3873|
   |L1_S24_F1844| |L3_S38_F3960| |L2_S26_F3036| |L2_S26_F3040| |L2_S26_F3047|
@@ -239,8 +239,8 @@ Best iteration : 67, train-rmse:0.060464	test-rmse:0.065220
 
   | | | | | | | |    
   |-|-|-|-|-|-|-|    
-  |all_next|         |next.cost.time|   |next.traget|      |L0_first|        
-  |all_prev|         |prev.traget|      |group.amount|     |next.na.amount|  
+  |all_next**|         |next.cost.time**|   |next.traget**|      |L0_first**|        
+  |all_prev**|         |prev.traget**|      |group.amount**|     |next.na.amount|  
   |all_na.amount|    |L3_first|         |total|            |cost.time|       
   |L2_first|         |L3_na.amount|     |prev.cost.time|   |group|           
   |L3_last|          |prev.na.amount|   |L3_min|           |L0_min|          
