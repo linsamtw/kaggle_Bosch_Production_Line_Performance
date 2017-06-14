@@ -259,11 +259,11 @@ feature plot :
 ![feature](https://github.com/f496328mm/kaggle_Production_Line/blob/master/product.importance.jpg)
 
 
+# Reference
 
+ [Bosch Production Line Performance. ( 2016 ) ](https://www.kaggle.com/c/bosch-production-line-performance )<br>
 
-
-
-
+[Daniel FG. ( 2016 )](https://www.kaggle.com/danielfg/xgboost-reg-linear-lb-0-485)
 
 
 
