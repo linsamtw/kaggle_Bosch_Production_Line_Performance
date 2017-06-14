@@ -113,10 +113,10 @@ ex : all_first, L0_first, L1_first, L2_first, L3_first <br>
 |group|第幾群同時製造的產品，同時製造代表可能有相同表現||
 |group.length|該群數量|table(group)|
 |cost.time|該製程耗時，耗時過長或過短，可能是因為產品出問題|max-min|
-|pcost.time|與上一個產品相比，製程耗時差距，差距過大，可能是因為產品出問題|cost.time-c(NA,cost.time[1:length(cost.time)-1])|
-|ncost.time|與下一個產品相比，製程耗時差距，差距過大，可能是因為產品出問題|cost.time-c(cost.time[2:length(cost.time)],NA)|
-|pna.amount|與上一個產品相比，na數量，差距過大，可能是因為產品出問題|na.amount--c(NA,na.amount[1:length(na.amount)-1])|
-|nna.amount|與下一個產品相比，na數量，差距過大，可能是因為產品出問題|na.amount--c(na.amount[2:length(na.amount)],NA)|
+|prev.cost.time|與上一個產品相比，製程耗時差距，差距過大，可能是因為產品出問題|cost.time-c(NA,cost.time[1:length(cost.time)-1])|
+|next.cost.time|與下一個產品相比，製程耗時差距，差距過大，可能是因為產品出問題|cost.time-c(cost.time[2:length(cost.time)],NA)|
+|prev.na.amount|與上一個產品相比，na數量，差距過大，可能是因為產品出問題|na.amount--c(NA,na.amount[1:length(na.amount)-1])|
+|next.na.amount|與下一個產品相比，na數量，差距過大，可能是因為產品出問題|na.amount--c(na.amount[2:length(na.amount)],NA)|
 |prev.target|上一個產品表現，彼此間可能相關|c(NA,target[1:(nrow(target)-1)])|
 |next.target|下一個產品表現，彼此間可能相關|c(target[2:nrow(target)],NA)|
 
