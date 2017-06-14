@@ -165,7 +165,7 @@ amount of var  = 450
 |real| 0|1176353|515 |
 ||     1|4216   |2663|
 
-MCC = 0.568
+[MCC](https://en.wikipedia.org/wiki/Matthews_correlation_coefficient) = 0.568
 
 
 
@@ -177,7 +177,7 @@ amount of var  = 50
 |real| 0|1176304|564 |
 ||     1|4360   |2519|
 
-MCC = 0.545
+[MCC](https://en.wikipedia.org/wiki/Matthews_correlation_coefficient) = 0.545
 
 以上發生一個我們不期望的事，預測是良品( 0 )，實際上是不良品( 1 )的比例過高( 左下角 )，
 我們必須做一些處理，將左下角盡可能轉移到右上角中。
