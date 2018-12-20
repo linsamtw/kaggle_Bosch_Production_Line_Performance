@@ -9,7 +9,7 @@
  注意 : 提供的 R code 由於使用到 parallel package 中的 mclapply 函數，因此只能在 linux 系統下執行。
         或者你可以把 mclapply 改成 sapply，兩者主要是時間上的差異。
         
- ps   : 我分析這個問題時，比賽已過期，因此排名是我藉由提交預測結果，回推的排名
+ ps   : 我分析這個問題時，比賽已過期，因此排名是我藉由提交預測結果，回推的排名
  **********************************************
  # 1. 緒論
  在現今的產業上，對於產品製造，大多都傾向自動化，因此我選擇該問題進行製程分析。 
@@ -214,8 +214,8 @@ Best iteration : 67, train-rmse:0.060464	test-rmse:0.065220
 
 1. 使用 XGBoost 內建的 rmse 逼近 MCC。
 2. imbalance 處理上，先將 target 轉換為數值，則問題轉變為迴歸問題，
-   並使用 0.25 作為分界點，大於 0.25 是 1，小於 0.25 則是 0 。
-   由於 0 佔大多數，因此分界點往 0 靠近。
+   並使用 0.25 作為分界點，大於 0.25 是 1，小於 0.25 則是 0 。
+   由於 0 佔大多數，因此分界點往 0 靠近。
    
 # 4. Fitted model
 
@@ -258,7 +258,7 @@ Best iteration : 67, train-rmse:0.060464	test-rmse:0.065220
 
 feature plot :
 
-![feature](https://github.com/f496328mm/kaggle_Production_Line/blob/master/product.importance.jpg)
+![feature](https://github.com/linsamtw/kaggle_Production_Line/blob/master/product.importance.jpg)
 
 # 延伸討論
 
