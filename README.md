@@ -258,7 +258,7 @@ Best iteration : 67, train-rmse:0.060464	test-rmse:0.065220
 
 feature plot :
 
-![feature](https://github.com/linsamtw/kaggle_Production_Line/blob/master/product.importance.jpg)
+![feature](https://github.com/linsamtw/kaggle_Bosch_Production_Line_Performance/blob/master/product.importance.jpg)
 
 # 延伸討論
 
